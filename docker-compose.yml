@@ -1,0 +1,10 @@
+services:
+  bot:
+    build: .
+    volumes:
+      - ./data.txt:/app/data.txt
+      - ./.env:/app/.env
+    environment:
+      TELEGRAM_TOKEN: ${TELEGRAM_TOKEN}
+      CHAT_ID: ${CHAT_ID}
+      NOTIFY_MINUTES_BEFORE: ${NOTIFY_MINUTES_BEFORE}
