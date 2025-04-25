@@ -92,7 +92,7 @@ def setup_scheduler():
                 target_time = datetime.now(MOSCOW_TZ).replace(
                     hour=hour,
                     minute=minute,
-                    second=0,
+                    second=5,
                     microsecond=0
                 )
                 notify_time = target_time - timedelta(minutes=NOTIFY_MINUTES_BEFORE)
