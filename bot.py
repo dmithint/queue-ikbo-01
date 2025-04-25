@@ -115,14 +115,6 @@ async def on_startup():
     """Действия при запуске бота"""
     logger.info("Бот запущен")
 
-    # Тестовое уведомление через 10 секунд
-    scheduler.add_job(
-        send_queue_message,
-        'date',
-        run_date=datetime.now(MOSCOW_TZ) + timedelta(seconds=10),
-        args=["🚀 Тестовое уведомление"]
-    )
-
     setup_scheduler()
     scheduler.start()
     logger.info(f"Планировщик запущен. Всего задач: {len(scheduler.get_jobs())}")
