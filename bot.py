@@ -103,7 +103,7 @@ def setup_scheduler():
                     day_of_week=DAY_MAP[day_str],
                     hour=notify_time.hour,
                     minute=notify_time.minute,
-                    args=[subject]
+                    args=[subject + f" ({time_str})"]
                 )
                 logger.info(f"Добавлено: {subject} - {DAY_MAP[day_str]} {notify_time.strftime('%H:%M')} MSK")
 
