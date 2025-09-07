@@ -2,9 +2,14 @@ services:
   bot:
     build: .
     volumes:
-      - ./data.txt:/app/data.txt
-      - ./.env:/app/.env
+      - ./queue_lessons_odd.txt:/app/queue_lessons_odd.txt
+      - ./queue_lessons_even.txt:/app/queue_lessons_even.txt
+      - ./check_lessons_odd.txt:/app/check_lessons_odd.txt
+      - ./check_lessons_even.txt:/app/check_lessons_even.txt
+      - ./.env:/app/.env:ro
     environment:
       TELEGRAM_TOKEN: ${TELEGRAM_TOKEN}
-      CHAT_ID: ${CHAT_ID}
-      NOTIFY_MINUTES_BEFORE: ${NOTIFY_MINUTES_BEFORE}
+      QUEUE_CHAT_ID: ${QUEUE_CHAT_ID}
+      CHECK_CHAT_ID: ${CHECK_CHAT_ID}
+      NOTIFY_MINUTES_BEFORE: ${NOTIFY_MINUTES_BEFORE:-30}
+    restart: unless-stopped

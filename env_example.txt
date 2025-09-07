@@ -1,0 +1,15 @@
+# Пример файла .env для настройки бота
+# Скопируйте этот файл как .env и заполните своими данными
+
+# Токен телеграм бота (ОБЯЗАТЕЛЬНО)
+TELEGRAM_TOKEN=your_bot_token_here
+
+# Chat ID для сообщений очереди
+QUEUE_CHAT_ID=-your_chat_id
+#QUEUE_THREAD_ID=your_thread_id
+# Chat ID для опросов посещения
+CHECK_CHAT_ID=-your_chat_id
+#CHECK_THREAD_ID=your_thread_id
+
+# За сколько минут до начала отправлять уведомление (по умолчанию: 30)
+NOTIFY_MINUTES_BEFORE=30
