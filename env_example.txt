@@ -11,5 +11,9 @@ QUEUE_CHAT_ID=-your_chat_id
 CHECK_CHAT_ID=-your_chat_id
 #CHECK_THREAD_ID=your_thread_id
 
+# Отмечаться в опросе автоматически
+API_HASH=...
+API_ID=...
+
 # За сколько минут до начала отправлять уведомление (по умолчанию: 30)
 NOTIFY_MINUTES_BEFORE=30

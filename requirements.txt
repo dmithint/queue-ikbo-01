@@ -2,3 +2,4 @@ aiogram
 apscheduler
 python-dotenv
 pytz
+telethon
