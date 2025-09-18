@@ -1,6 +1,8 @@
 import os
 import asyncio
 import logging
+from datetime import datetime
+from pytz import timezone
 from dotenv import load_dotenv
 from telethon import TelegramClient, events
 
@@ -16,12 +18,18 @@ API_HASH = os.getenv("API_HASH")
 SESSION_NAME = os.getenv("SESSION_NAME", "poll_session")
 CHECK_CHAT_ID = int(os.getenv("CHECK_CHAT_ID"))
 
+MOSCOW_TZ = timezone('Europe/Moscow')
+
 client = TelegramClient(SESSION_NAME, API_ID, API_HASH)
 
 
 @client.on(events.NewMessage(chats=[CHECK_CHAT_ID]))
 async def handler(event):
     if not event.poll:
+        return
+
+    now_moscow = datetime.now(MOSCOW_TZ)
+    if now_moscow.weekday() != 5:  # 5 = суббота
         return
 
     try:
